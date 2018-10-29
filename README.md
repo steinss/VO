@@ -1,6 +1,7 @@
 # VO
 A simple stero Visual Odometry ,without loop closure.
-Individual practice
+
+Based on OpenCV
 
 
 

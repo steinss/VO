@@ -10,16 +10,22 @@
 #include <boost/format.hpp>
 using namespace std;
 /****************************************************************/
-string pose_file = "../00.txt";
-string my_file = "../pose_cal.txt";
+//string pose_file = "../00.txt";
+//string my_file = "../pose_cal.txt";
 
 /*****************************************************************/
 void DrawTrajectory(vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses1,
                     vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses2);
 void read_pose(string file,vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>>& poses);
 
-int main(){
+int main(int argc,char** argv){
 /***********************************************************/
+    if(argc!=3)
+    {
+        cout<<"file is lost"<<endl;
+    }
+    string pose_file = argv[1];
+    string my_file = argv[2];
     vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_dataset;
     vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_1;
     read_pose( pose_file,poses_dataset );

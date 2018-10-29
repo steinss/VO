@@ -11,14 +11,20 @@
 #include <opencv2/viz/viz3d.hpp>
 #include <opencv2/viz.hpp>
 //paras
-string my_file = "../pose_cal_2.txt";
-string filepath = "/media/da/My Passport/kitti/dataset/sequences/01";
+//string my_file = "../pose_cal_2.txt";
+//string filepath = "/media/da/My Passport/kitti/dataset/sequences/01";
 double baseline = 0.5372;
 
 
 
-int main()
+int main(int argc,char** argv)
 {
+    if(argc!=3)
+    {
+        cout<<"file is lost"<<endl;
+    }
+    string my_file = argv[1];
+    string filepath = argv[2];
     //读取img文件名
     vector<string> img_leftlist,img_rightlist;
     read_fold(filepath+"/image_0/",img_leftlist);
